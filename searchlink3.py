@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup as BS
+﻿from bs4 import BeautifulSoup as BS
 import urllib.request as urllib2
 import datetime
 import re
@@ -60,12 +60,6 @@ def calcprice(filename,pricefile):
 
 
 
-#(?<= {6})\d*\.?\d* regex
-
-#( )\1+
-#(?<=( )\1+)\d*\.?\d* regex
-# +  +means as many preceding letter as possible
-# d6453c7a2a7f83d9b8d51851de25a62081bec153
 #curl -X POST --data '{"method":"xdag_get_block_info", "params":["dfKdPEdqac23INOdR/juDDY1LKFRePFk"], "id":1}' localhost:16005
 def search(url):
 
@@ -79,9 +73,7 @@ def search(url):
 		
 		html = urllib2.urlopen(url)
 		soup = BS(html,'html.parser')
-			#print (tag.next_element)
-			#print (tag.nextsibling)
-			#print (tag.nextsibling.nextsibling)
+
 		
 		flag=0
 
@@ -131,7 +123,7 @@ def search(url):
 
 if __name__ == "__main__": ## If we are not importing this:
 	calcprice('dfk balance.txt','pricefile.csv')
-'''
+
 	f = open("addrlist.csv", 'r+')
 	data = f.read()
 	rows = data.split('\n')
@@ -165,5 +157,5 @@ if __name__ == "__main__": ## If we are not importing this:
 		#To make sure that you're data is written to disk, use file.flush() followed by os.fsync(file.fileno()).
 		#(prt1, readlist) = search("https://explorer.xdag.io/block/"+row)
 		
-'''
+
 
